@@ -392,3 +392,12 @@ body {
     transform: translateY(-8px) rotate(-45deg);
   }
 }
+
+#nav-links {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#nav-links.active {
+  opacity: 1;
+}
