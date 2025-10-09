@@ -1,0 +1,394 @@
+* {
+  font-family: "Poppins";
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 30px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+}
+
+#logo a {
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+}
+
+#logo {
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+a {
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+}
+
+nav a {
+  margin-left: 10px;
+  align-items: flex-start;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#landing {
+  width: 100%;
+  margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80")
+      no-repeat center center/cover;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#fotosaya {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 40px auto;
+}
+
+#nama {
+  color: white;
+  text-align: center;
+}
+
+.skil {
+  font-size: 30px;
+  color: white;
+  text-align: center;
+}
+
+#aboutme {
+  background-color: #1e2230;
+  color: white;
+  padding: 80px 100px;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#foto2 {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+#textabout {
+  margin: 0;
+  max-width: 600px;
+}
+
+#textabout h5 {
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+#textabout p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.discover {
+  font-size: 16px;
+  color: #00bcd4;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+#skil {
+  padding: 80px 30px;
+  background-color: #ffffff;
+}
+
+.skill-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#skil h2 {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  color: #1e2230;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  background-color: #f8f9fa;
+  padding: 35px 25px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card i {
+  font-size: 2.8rem;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+.skill-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #1e2230;
+}
+
+.skill-card p {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+#contact {
+  padding: 100px 30px;
+  background-color: #1e2230;
+}
+
+.contact-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00bcd4;
+  margin-bottom: 30px;
+}
+
+#contact form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  background-color: #2c3142;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #8d93a1;
+  opacity: 0.8;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 2px solid #00bcd4;
+}
+
+.submit-btn {
+  background-color: #00bcd4;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-end;
+}
+
+.submit-btn:hover {
+  background-color: #00bcd4;
+}
+
+@media (max-width: 992px) {
+  #aboutme {
+    padding: 60px 50px;
+  }
+
+  .about-container {
+    gap: 30px;
+  }
+
+  #foto2 {
+    width: 300px;
+    height: 300px;
+  }
+
+  #textabout h5 {
+    font-size: 30px;
+  }
+
+  #textabout p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  a {
+    font-size: 18px;
+  }
+
+  #header {
+    padding: 15px;
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
+
+  #landing {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  #fotosaya {
+    width: 200px;
+    height: 200px;
+  }
+
+  #nama {
+    font-size: 28px;
+  }
+
+  .skil {
+    font-size: 20px;
+    padding: 0 15px;
+  }
+
+  #aboutme {
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  #foto2 {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+
+  #skil,
+  #contact {
+    padding: 60px 30px;
+  }
+
+  #skil h2,
+  #contact h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+}
+
+#hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+#hamburger-btn .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+  #hamburger-btn {
+    display: block;
+  }
+
+  #nav-links {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  #nav-links.active {
+    display: flex;
+  }
+
+  #nav-links a {
+    font-size: 24px;
+    padding: 20px 0;
+    color: #333;
+  }
+
+  #hamburger-btn.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  #hamburger-btn.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #hamburger-btn.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
