@@ -1,149 +1,168 @@
 * {
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #fdfdfd;
+  color: #1e2230;
+}
+
 #header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   padding: 16px 30px;
   position: sticky;
   top: 0;
-  background-color: white;
+  background: white;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 #logo a {
-  color: inherit;
-  font-size: inherit;
+  color: #00bcd4;
+  font-size: 1.8rem;
+  font-weight: 700;
   text-decoration: none;
-}
-
-#logo {
-  margin: 0;
-}
-
-h1 {
-  font-size: 40px;
-  font-weight: 500;
-}
-
-a {
-  font-size: 25px;
-  text-decoration: none;
-  color: black;
 }
 
 nav a {
-  margin-left: 10px;
-  align-items: flex-start;
+  text-decoration: none;
+  color: #333;
+  margin-left: 20px;
+  font-weight: 500;
+  position: relative;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: #00bcd4;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 #landing {
-  width: 100%;
-  margin: 0;
+  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80")
       no-repeat center center/cover;
-  padding-top: 150px;
-  padding-bottom: 150px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
 }
 
 #fotosaya {
-  width: 250px;
-  height: 250px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   border-radius: 50%;
-  display: block;
-  margin: 40px auto;
+  border: 4px solid #00bcd4;
 }
 
 #nama {
-  color: white;
-  text-align: center;
+  margin-top: 25px;
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 .skil {
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: #00bcd4;
   color: white;
-  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.cta-btn:hover {
+  background: #0099b2;
 }
 
 #aboutme {
   background-color: #1e2230;
   color: white;
-  padding: 80px 100px;
+  padding: 100px 60px;
 }
 
 .about-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
   flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
+  gap: 50px;
 }
 
 #foto2 {
-  width: 400px;
-  height: 400px;
-  object-fit: contain;
-  border-radius: 12px;
+  width: 380px;
+  border-radius: 16px;
+  object-fit: cover;
 }
 
 #textabout {
-  margin: 0;
-  max-width: 600px;
-}
-
-#textabout h5 {
-  font-size: 36px;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-#textabout p {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  max-width: 550px;
 }
 
 .discover {
-  font-size: 16px;
   color: #00bcd4;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
 
-#skil {
-  padding: 80px 30px;
-  background-color: #ffffff;
+#textabout h5 {
+  font-size: 2rem;
+  margin-bottom: 15px;
 }
 
-.skill-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.about-btn {
+  display: inline-block;
+  background: #00bcd4;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.about-btn:hover {
+  background: #0099b2;
+}
+
+#skil {
+  padding: 100px 60px;
   text-align: center;
 }
 
 #skil h2 {
-  font-size: 36px;
-  font-weight: 600;
+  font-size: 2.2rem;
   margin-bottom: 50px;
   color: #1e2230;
 }
@@ -151,21 +170,20 @@ body {
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
+  gap: 25px;
 }
 
 .skill-card {
-  background-color: #f8f9fa;
-  padding: 35px 25px;
-  border-radius: 8px;
-  text-align: center;
-  border: 1px solid #e9ecef;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  padding: 40px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
 }
 
 .skill-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .skill-card i {
@@ -174,165 +192,74 @@ body {
   margin-bottom: 20px;
 }
 
-.skill-card h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #1e2230;
-}
-
-.skill-card p {
-  font-size: 0.95rem;
-  color: #6c757d;
-  line-height: 1.6;
-}
-
 #contact {
   padding: 100px 30px;
   background-color: #1e2230;
-}
-
-.contact-container {
-  max-width: 700px;
-  margin: 0 auto;
+  color: white;
+  text-align: center;
 }
 
 #contact h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #00bcd4;
+  font-size: 2rem;
   margin-bottom: 30px;
+  color: #00bcd4;
 }
 
 #contact form {
-  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
 #contact input,
 #contact textarea {
-  width: 100%;
-  background-color: #2c3142;
+  background: #2c3142;
+  color: white;
   border: none;
   border-radius: 8px;
-  padding: 18px 20px;
-  font-family: "Poppins", sans-serif;
-  font-size: 1rem;
-  color: #ffffff;
+  padding: 15px 18px;
   margin-bottom: 20px;
-  resize: vertical;
-}
-
-#contact input::placeholder,
-#contact textarea::placeholder {
-  color: #8d93a1;
-  opacity: 0.8;
-}
-
-#contact input:focus,
-#contact textarea:focus {
-  outline: 2px solid #00bcd4;
+  font-size: 1rem;
 }
 
 .submit-btn {
-  background-color: #00bcd4;
-  color: #ffffff;
+  background: #00bcd4;
+  color: white;
   border: none;
-  padding: 15px 30px;
+  border-radius: 8px;
+  padding: 14px 30px;
   font-size: 1rem;
   font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: 0.3s;
   align-self: flex-end;
 }
 
 .submit-btn:hover {
-  background-color: #00bcd4;
+  background: #0099b2;
 }
 
-@media (max-width: 992px) {
-  #aboutme {
-    padding: 60px 50px;
-  }
-
-  .about-container {
-    gap: 30px;
-  }
-
-  #foto2 {
-    width: 300px;
-    height: 300px;
-  }
-
-  #textabout h5 {
-    font-size: 30px;
-  }
-
-  #textabout p {
-    font-size: 16px;
-  }
+#footer {
+  background: #11141f;
+  color: #aaa;
+  text-align: center;
+  padding: 25px 10px;
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 32px;
-  }
+.socials {
+  margin-top: 10px;
+}
 
-  a {
-    font-size: 18px;
-  }
+.socials a {
+  color: #00bcd4;
+  margin: 0 8px;
+  font-size: 1.3rem;
+  transition: 0.3s;
+}
 
-  #header {
-    padding: 15px;
-  }
-
-  nav a {
-    margin: 0 8px;
-  }
-
-  #landing {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-
-  #fotosaya {
-    width: 200px;
-    height: 200px;
-  }
-
-  #nama {
-    font-size: 28px;
-  }
-
-  .skil {
-    font-size: 20px;
-    padding: 0 15px;
-  }
-
-  #aboutme {
-    padding: 60px 30px;
-    text-align: center;
-  }
-
-  #foto2 {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-
-  #skil,
-  #contact {
-    padding: 60px 30px;
-  }
-
-  #skil h2,
-  #contact h2 {
-    font-size: 28px;
-    margin-bottom: 40px;
-  }
+.socials a:hover {
+  color: #fff;
 }
 
 #hamburger-btn {
@@ -340,15 +267,13 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  z-index: 1001;
+  padding: 8px;
 }
 
-#hamburger-btn .bar {
-  display: block;
+.bar {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background: #333;
   margin: 5px 0;
   transition: 0.4s;
 }
@@ -361,15 +286,14 @@ body {
   #nav-links {
     display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
     position: absolute;
-    top: 0;
+    top: 70px;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: 1000;
+    background: white;
+    text-align: center;
+    padding: 40px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
 
   #nav-links.active {
@@ -377,18 +301,34 @@ body {
   }
 
   #nav-links a {
-    font-size: 24px;
-    padding: 20px 0;
-    color: #333;
+    font-size: 22px;
+    margin: 15px 0;
+  }
+
+  .bar:nth-child(1) {
+    transform-origin: top left;
+  }
+
+  .bar:nth-child(3) {
+    transform-origin: bottom left;
   }
 
   #hamburger-btn.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: rotate(45deg);
   }
+
   #hamburger-btn.active .bar:nth-child(2) {
     opacity: 0;
   }
+
   #hamburger-btn.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  #aboutme,
+  #skil,
+  #contact {
+    padding: 60px 20px;
   }
 }
+
