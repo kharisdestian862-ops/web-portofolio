@@ -1,3 +1,4 @@
+/* === RESET & GLOBAL === */
 * {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
@@ -14,7 +15,7 @@ body {
   color: #1e2230;
 }
 
-/* === WELCOME MODAL STYLES === */
+/* === WELCOME MODAL === */
 .welcome-modal {
   position: fixed;
   top: 0;
@@ -58,6 +59,13 @@ body {
   line-height: 1.6;
 }
 
+.music-icon-welcome {
+  font-size: 60px;
+  color: #00bcd4;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
 .enter-btn {
   background: linear-gradient(135deg, #00bcd4 0%, #00a8c5 100%);
   color: white;
@@ -80,20 +88,13 @@ body {
   margin-right: 8px;
 }
 
-.music-icon-welcome {
-  font-size: 60px;
-  color: #00bcd4;
-  margin-bottom: 20px;
-  animation: pulse 2s infinite;
-}
-
-/* === MUSIC CONTROL BUTTON === */
+/* === MUSIC CONTROL === */
 .music-control {
   position: fixed;
   bottom: 30px;
   right: 30px;
   background: linear-gradient(135deg, #00bcd4 0%, #00a8c5 100%);
-  padding: 18px 25px;
+  padding: 16px 22px;
   border-radius: 50px;
   cursor: pointer;
   z-index: 1000;
@@ -147,7 +148,7 @@ body {
   }
 }
 
-/* === ORIGINAL STYLES === */
+/* === HEADER === */
 #header {
   display: flex;
   justify-content: space-between;
@@ -190,6 +191,7 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* === LANDING === */
 #landing {
   height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
@@ -238,6 +240,7 @@ nav a:hover::after {
   background: #0099b2;
 }
 
+/* === ABOUT SECTION === */
 #aboutme {
   background-color: #1e2230;
   color: white;
@@ -290,6 +293,7 @@ nav a:hover::after {
   background: #0099b2;
 }
 
+/* === SKILL SECTION === */
 #skil {
   padding: 100px 60px;
   text-align: center;
@@ -326,16 +330,17 @@ nav a:hover::after {
   margin-bottom: 20px;
 }
 
+/* === CONTACT SECTION === */
 #contact {
-  padding: 100px 30px;
   background-color: #1e2230;
   color: white;
   text-align: center;
+  padding: 100px 30px 80px;
 }
 
 #contact h2 {
   font-size: 2rem;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   color: #00bcd4;
 }
 
@@ -344,6 +349,8 @@ nav a:hover::after {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 18px;
 }
 
 #contact input,
@@ -353,8 +360,13 @@ nav a:hover::after {
   border: none;
   border-radius: 8px;
   padding: 15px 18px;
-  margin-bottom: 20px;
+  width: 100%;
   font-size: 1rem;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #aaa;
 }
 
 .submit-btn {
@@ -372,198 +384,15 @@ nav a:hover::after {
 
 .submit-btn:hover {
   background-color: #00a8c5;
-}
-
-@media (max-width: 992px) {
-  #aboutme {
-    padding: 60px 50px;
-  }
-
-  .about-container {
-    gap: 30px;
-  }
-
-  #foto2 {
-    width: 300px;
-    height: 300px;
-  }
-
-  #textabout h5 {
-    font-size: 30px;
-  }
-
-  #textabout p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 32px;
-  }
-
-  a {
-    font-size: 18px;
-  }
-
-  #header {
-    padding: 15px;
-  }
-
-  nav a {
-    margin: 0 8px;
-  }
-
-  #landing {
-    padding-top: 100px;
-    padding-bottom: 100px;
-  }
-
-  #fotosaya {
-    width: 200px;
-    height: 200px;
-  }
-
-  #nama {
-    font-size: 28px;
-  }
-
-  .skil {
-    font-size: 20px;
-    padding: 0 15px;
-  }
-
-  #aboutme {
-    padding: 60px 30px;
-    text-align: center;
-  }
-
-  #foto2 {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-  }
-
-  #skil,
-  #contact {
-    padding: 60px 30px;
-  }
-
-  #skil h2,
-  #contact h2 {
-    font-size: 28px;
-    margin-bottom: 40px;
-  }
-}
-
-#hamburger-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 1001;
-}
-
-#hamburger-btn .bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 5px 0;
-  transition: 0.4s;
-}
-
-@media (max-width: 768px) {
-  #hamburger-btn {
-    display: block;
-  }
-
-  #nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: white;
-    text-align: center;
-    padding: 40px 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  #nav-links.active {
-    display: flex;
-  }
-
-  #nav-links a {
-    font-size: 22px;
-    margin: 15px 0;
-  }
-
-  .bar:nth-child(1) {
-    transform-origin: top left;
-  }
-
-  .bar:nth-child(3) {
-    transform-origin: bottom left;
-  }
-
-  #hamburger-btn.active .bar:nth-child(1) {
-    transform: rotate(45deg);
-  }
-
-  #hamburger-btn.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  #hamburger-btn.active .bar:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-
-  #aboutme,
-  #skil,
-  #contact {
-    padding: 60px 20px;
-  }
-
-  /* Responsive for welcome modal and music control */
-  .welcome-content {
-    padding: 40px 30px;
-    margin: 20px;
-  }
-
-  .welcome-content h1 {
-    font-size: 36px;
-  }
-
-  .welcome-content p {
-    font-size: 16px;
-  }
-
-  .music-icon-welcome {
-    font-size: 50px;
-  }
-
-  .music-control {
-    bottom: 20px;
-    right: 20px;
-    padding: 15px 20px;
-    font-size: 14px;
-  }
-
-  .music-control i {
-    font-size: 18px;
-  }
+  transform: translateY(-2px);
 }
 
 /* === FOOTER === */
 footer {
-  background-color: #1e2230;
+  background-color: #171b28;
   color: #fff;
-  padding: 25px 0;
+  padding: 25px 0 40px;
   text-align: center;
-  margin-top: 80px;
 }
 
 .footer-container {
@@ -592,4 +421,55 @@ footer {
 .social-links a:hover {
   color: #00b3ff;
   transform: translateY(-3px);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 992px) {
+  #aboutme {
+    padding: 60px 50px;
+  }
+
+  #foto2 {
+    width: 300px;
+  }
+
+  #textabout h5 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  #header {
+    padding: 15px;
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
+
+  #landing {
+    padding: 80px 0;
+  }
+
+  #fotosaya {
+    width: 200px;
+    height: 200px;
+  }
+
+  #nama {
+    font-size: 28px;
+  }
+
+  #aboutme,
+  #skil,
+  #contact {
+    padding: 60px 25px;
+  }
+
+  .music-control {
+    bottom: 20px;
+    right: 20px;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
 }
