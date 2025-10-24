@@ -30,16 +30,23 @@
 
     <!-- Audio Element -->
     <audio id="bgMusic" loop>
-      <source src="img/musik.mp3" type="audio/mpeg" />
+      <source src="img/musik1.mp3" type="audio/mpeg" />
       Browser kamu tidak support audio.
     </audio>
 
     <!-- Music Control Button -->
-    <div id="musicControl" class="music-control" onclick="toggleMusic()">
+    <div id="musicControl" class="music-control">
       <i id="musicIcon" class="fas fa-volume-up"></i>
       <span id="musicText">Music ON</span>
+      <button onclick="prevMusic()" class="music-btn">
+        <i class="fas fa-backward"></i>
+      </button>
+      <button onclick="nextMusic()" class="music-btn">
+        <i class="fas fa-forward"></i>
+      </button>
     </div>
 
+    <!-- Header -->
     <header id="header">
       <h1 id="logo"><a href="#landing">KDEST</a></h1>
       <button id="hamburger-btn">
@@ -54,6 +61,8 @@
         <a href="#contact">Contact</a>
       </nav>
     </header>
+
+    <!-- Landing -->
     <section id="landing">
       <div class="landing-content">
         <img
@@ -69,6 +78,7 @@
       </div>
     </section>
 
+    <!-- About -->
     <section id="aboutme">
       <div class="about-container">
         <img id="foto2" src="img/foto2.jpeg" alt="Foto Kharis" />
@@ -88,6 +98,7 @@
       </div>
     </section>
 
+    <!-- Skills -->
     <section id="skil">
       <div class="skill-container">
         <h2>My Skills</h2>
@@ -136,6 +147,7 @@
       </div>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
       <div class="contact-container">
         <h2>Hubungi Saya</h2>
@@ -151,8 +163,10 @@
         </form>
       </div>
     </section>
+
+    <!-- Script -->
     <script>
-      // Hamburger Menu
+      // === HAMBURGER MENU ===
       const hamburgerBtn = document.getElementById("hamburger-btn");
       const navLinks = document.getElementById("nav-links");
       const links = document.querySelectorAll("#nav-links a");
@@ -169,47 +183,67 @@
         });
       });
 
-      // Music Functions - DEFINE DI WINDOW OBJECT
+      // === MUSIC SYSTEM ===
+      const music = document.getElementById("bgMusic");
+      const icon = document.getElementById("musicIcon");
+      const text = document.getElementById("musicText");
+      const control = document.getElementById("musicControl");
+
+      // Ganti nama file sesuai musik kamu
+      const musicFiles = ["img/musik.mp3", "img/musik2.mp3", "img/musik3.mp3"];
+
+      let currentTrack = 0;
+
       window.enterSite = function () {
         const modal = document.getElementById("welcomeModal");
-        const music = document.getElementById("bgMusic");
-        const control = document.getElementById("musicControl");
-
         modal.classList.add("hidden");
+
+        music.src = musicFiles[currentTrack];
         music.volume = 0.2;
 
         music
           .play()
           .then(() => {
-            console.log("Music playing!");
             control.style.display = "flex";
           })
           .catch((err) => {
             console.error("Error playing music:", err);
-            alert("Tidak bisa memutar musik: " + err.message);
             control.style.display = "flex";
           });
       };
 
       window.toggleMusic = function () {
-        const music = document.getElementById("bgMusic");
-        const icon = document.getElementById("musicIcon");
-        const text = document.getElementById("musicText");
-
         if (music.paused) {
-          music
-            .play()
-            .then(() => {
-              icon.className = "fas fa-volume-up";
-              text.textContent = "Music ON";
-            })
-            .catch((err) => console.error("Error:", err));
+          music.play();
+          icon.className = "fas fa-volume-up";
+          text.textContent = "Music ON";
         } else {
           music.pause();
           icon.className = "fas fa-volume-mute";
           text.textContent = "Music OFF";
         }
       };
+
+      window.nextMusic = function () {
+        currentTrack = (currentTrack + 1) % musicFiles.length;
+        playTrack();
+      };
+
+      window.prevMusic = function () {
+        currentTrack =
+          (currentTrack - 1 + musicFiles.length) % musicFiles.length;
+        playTrack();
+      };
+
+      function playTrack() {
+        music.src = musicFiles[currentTrack];
+        music.play().catch((err) => console.error(err));
+      }
+
+      // Auto play next song
+      music.addEventListener("ended", () => {
+        nextMusic();
+      });
     </script>
   </body>
 </html>
