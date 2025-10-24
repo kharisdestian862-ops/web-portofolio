@@ -152,6 +152,7 @@
       </div>
     </section>
     <script>
+      // Hamburger Menu
       const hamburgerBtn = document.getElementById("hamburger-btn");
       const navLinks = document.getElementById("nav-links");
       const links = document.querySelectorAll("#nav-links a");
@@ -168,51 +169,47 @@
         });
       });
 
-      // Music Control
-      const modal = document.getElementById("welcomeModal");
-      const music = document.getElementById("bgMusic");
-      const musicControl = document.getElementById("musicControl");
-      const musicIcon = document.getElementById("musicIcon");
-      const musicText = document.getElementById("musicText");
-      let isPlaying = false;
+      // Music Functions - DEFINE DI WINDOW OBJECT
+      window.enterSite = function () {
+        const modal = document.getElementById("welcomeModal");
+        const music = document.getElementById("bgMusic");
+        const control = document.getElementById("musicControl");
 
-      music.volume = 0.2;
-
-      function enterSite() {
         modal.classList.add("hidden");
+        music.volume = 0.2;
+
         music
           .play()
           .then(() => {
-            console.log("Music started!");
-            musicControl.style.display = "flex";
-            isPlaying = true;
+            console.log("Music playing!");
+            control.style.display = "flex";
           })
-          .catch((error) => {
-            console.error("Error playing music:", error);
-            alert("Gagal memutar musik.");
-            musicControl.style.display = "flex";
+          .catch((err) => {
+            console.error("Error playing music:", err);
+            alert("Tidak bisa memutar musik: " + err.message);
+            control.style.display = "flex";
           });
-      }
+      };
 
-      function toggleMusic() {
-        if (isPlaying) {
-          music.pause();
-          musicIcon.className = "fas fa-volume-mute";
-          musicText.textContent = "Music OFF";
-          isPlaying = false;
-        } else {
+      window.toggleMusic = function () {
+        const music = document.getElementById("bgMusic");
+        const icon = document.getElementById("musicIcon");
+        const text = document.getElementById("musicText");
+
+        if (music.paused) {
           music
             .play()
             .then(() => {
-              musicIcon.className = "fas fa-volume-up";
-              musicText.textContent = "Music ON";
-              isPlaying = true;
+              icon.className = "fas fa-volume-up";
+              text.textContent = "Music ON";
             })
-            .catch((error) => {
-              console.error("Error playing music:", error);
-            });
+            .catch((err) => console.error("Error:", err));
+        } else {
+          music.pause();
+          icon.className = "fas fa-volume-mute";
+          text.textContent = "Music OFF";
         }
-      }
+      };
     </script>
   </body>
 </html>
