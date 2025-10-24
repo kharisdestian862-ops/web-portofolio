@@ -7,6 +7,140 @@ html {
   scroll-behavior: smooth;
 }
 
+/* === WELCOME MODAL STYLES === */
+.welcome-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 34, 48, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.5s ease;
+}
+
+.welcome-modal.hidden {
+  display: none;
+}
+
+.welcome-content {
+  background: linear-gradient(135deg, #1e2230 0%, #2c3142 100%);
+  padding: 60px 50px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.6s ease;
+  border: 2px solid rgba(0, 188, 212, 0.3);
+}
+
+.welcome-content h1 {
+  color: #00bcd4;
+  font-size: 48px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.welcome-content p {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.enter-btn {
+  background: linear-gradient(135deg, #00bcd4 0%, #00a8c5 100%);
+  color: white;
+  border: none;
+  padding: 18px 45px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 188, 212, 0.3);
+}
+
+.enter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 188, 212, 0.4);
+}
+
+.enter-btn i {
+  margin-right: 8px;
+}
+
+.music-icon-welcome {
+  font-size: 60px;
+  color: #00bcd4;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+/* === MUSIC CONTROL BUTTON === */
+.music-control {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #00bcd4 0%, #00a8c5 100%);
+  padding: 18px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 1000;
+  color: white;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.4);
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.music-control:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 188, 212, 0.5);
+}
+
+.music-control i {
+  font-size: 20px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* === ORIGINAL STYLES === */
 #header {
   display: flex;
   align-items: center;
@@ -250,9 +384,28 @@ body {
 }
 
 .submit-btn:hover {
-  background-color: #00bcd4;
+  background-color: #00a8c5;
 }
 
+#hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+#hamburger-btn .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 992px) {
   #aboutme {
     padding: 60px 50px;
@@ -333,27 +486,7 @@ body {
     font-size: 28px;
     margin-bottom: 40px;
   }
-}
 
-#hamburger-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 1001;
-}
-
-#hamburger-btn .bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 5px 0;
-  transition: 0.4s;
-}
-
-@media (max-width: 768px) {
   #hamburger-btn {
     display: block;
   }
@@ -390,5 +523,34 @@ body {
   }
   #hamburger-btn.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Responsive for welcome modal and music control */
+  .welcome-content {
+    padding: 40px 30px;
+    margin: 20px;
+  }
+
+  .welcome-content h1 {
+    font-size: 36px;
+  }
+
+  .welcome-content p {
+    font-size: 16px;
+  }
+
+  .music-icon-welcome {
+    font-size: 50px;
+  }
+
+  .music-control {
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+
+  .music-control i {
+    font-size: 18px;
   }
 }

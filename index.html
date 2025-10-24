@@ -17,6 +17,30 @@
     />
   </head>
   <body>
+    <!-- Welcome Modal -->
+    <div id="welcomeModal" class="welcome-modal">
+      <div class="welcome-content">
+        <i class="fas fa-music music-icon-welcome"></i>
+        <h1>Welcome!</h1>
+        <p>Nikmati pengalaman portfolio dengan background music 🎵</p>
+        <button class="enter-btn" onclick="enterSite()">
+          <i class="fas fa-play"></i> Enter Site
+        </button>
+      </div>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop>
+      <source src="musik.mp3" type="audio/mpeg" />
+      Browser kamu tidak support audio.
+    </audio>
+
+    <!-- Music Control Button -->
+    <div id="musicControl" class="music-control" onclick="toggleMusic()">
+      <i id="musicIcon" class="fas fa-volume-up"></i>
+      <span id="musicText">Music ON</span>
+    </div>
+
     <header id="header">
       <h1 id="logo"><a href="">KDEST</a></h1>
 
@@ -33,6 +57,7 @@
         <a href="#contact">Contact</a>
       </nav>
     </header>
+
     <section id="landing">
       <div>
         <img
@@ -46,6 +71,7 @@
         </p>
       </div>
     </section>
+
     <section id="aboutme">
       <div class="about-container">
         <img id="foto2" src="img/foto2.jpeg" alt="Foto Kharis" />
@@ -61,6 +87,7 @@
         </div>
       </div>
     </section>
+
     <section id="skil">
       <div class="skill-container">
         <h2>My Skills</h2>
@@ -128,7 +155,9 @@
         </form>
       </div>
     </section>
+
     <script>
+      // Hamburger Menu
       const hamburgerBtn = document.getElementById("hamburger-btn");
       const navLinks = document.getElementById("nav-links");
       const links = document.querySelectorAll("#nav-links a");
@@ -144,6 +173,38 @@
           navLinks.classList.remove("active");
         });
       });
+
+      // Music Control
+      const modal = document.getElementById("welcomeModal");
+      const music = document.getElementById("bgMusic");
+      const musicControl = document.getElementById("musicControl");
+      const musicIcon = document.getElementById("musicIcon");
+      const musicText = document.getElementById("musicText");
+      let isPlaying = false;
+
+      // Set volume musik (20% dari maksimal)
+      music.volume = 0.2;
+
+      function enterSite() {
+        modal.classList.add("hidden");
+        music.play();
+        musicControl.style.display = "flex";
+        isPlaying = true;
+      }
+
+      function toggleMusic() {
+        if (isPlaying) {
+          music.pause();
+          musicIcon.className = "fas fa-volume-mute";
+          musicText.textContent = "Music OFF";
+          isPlaying = false;
+        } else {
+          music.play();
+          musicIcon.className = "fas fa-volume-up";
+          musicText.textContent = "Music ON";
+          isPlaying = true;
+        }
+      }
     </script>
   </body>
 </html>
