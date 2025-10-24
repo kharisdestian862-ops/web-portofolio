@@ -167,6 +167,52 @@
           navLinks.classList.remove("active");
         });
       });
+
+      // Music Control
+      const modal = document.getElementById("welcomeModal");
+      const music = document.getElementById("bgMusic");
+      const musicControl = document.getElementById("musicControl");
+      const musicIcon = document.getElementById("musicIcon");
+      const musicText = document.getElementById("musicText");
+      let isPlaying = false;
+
+      music.volume = 0.2;
+
+      function enterSite() {
+        modal.classList.add("hidden");
+        music
+          .play()
+          .then(() => {
+            console.log("Music started!");
+            musicControl.style.display = "flex";
+            isPlaying = true;
+          })
+          .catch((error) => {
+            console.error("Error playing music:", error);
+            alert("Gagal memutar musik.");
+            musicControl.style.display = "flex";
+          });
+      }
+
+      function toggleMusic() {
+        if (isPlaying) {
+          music.pause();
+          musicIcon.className = "fas fa-volume-mute";
+          musicText.textContent = "Music OFF";
+          isPlaying = false;
+        } else {
+          music
+            .play()
+            .then(() => {
+              musicIcon.className = "fas fa-volume-up";
+              musicText.textContent = "Music ON";
+              isPlaying = true;
+            })
+            .catch((error) => {
+              console.error("Error playing music:", error);
+            });
+        }
+      }
     </script>
   </body>
 </html>
