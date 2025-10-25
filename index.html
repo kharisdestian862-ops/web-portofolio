@@ -30,7 +30,7 @@
 
     <!-- Audio Element -->
     <audio id="bgMusic" loop>
-      <source src="img/musik1.mp3" type="audio/mpeg" />
+      <source src="img/musik/lagu1.mp3" type="audio/mpeg" />
       Browser kamu tidak support audio.
     </audio>
 
@@ -205,11 +205,21 @@
       const icon = document.getElementById("musicIcon");
       const control = document.getElementById("musicControl");
 
+      // Array playlist - tambahkan file musik Anda di sini
+      const musicPlaylist = [
+        "img/musik.mp3",
+        "img/musik2.mp3",
+        "img/musik3.mp3",
+      ];
+
+      let currentTrackIndex = 0;
+
       function enterSite() {
         const modal = document.getElementById("welcomeModal");
         modal.classList.add("hidden");
 
         music.volume = 0.2;
+        music.src = musicPlaylist[currentTrackIndex];
 
         // Langsung tampilkan tombol
         control.style.display = "flex";
@@ -229,6 +239,15 @@
           icon.className = "fas fa-volume-mute";
         }
       }
+
+      // Auto play next song ketika lagu selesai
+      music.addEventListener("ended", () => {
+        currentTrackIndex = (currentTrackIndex + 1) % musicPlaylist.length;
+        music.src = musicPlaylist[currentTrackIndex];
+        music
+          .play()
+          .catch((err) => console.error("Error playing next track:", err));
+      });
 
       // Expose functions to window
       window.enterSite = enterSite;

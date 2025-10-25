@@ -167,6 +167,39 @@ body {
   text-decoration: none;
 }
 
+/* Hamburger Button */
+#hamburger-btn {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+#hamburger-btn .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #00bcd4;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+#hamburger-btn.active .bar:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+#hamburger-btn.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-btn.active .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation */
 nav a {
   text-decoration: none;
   color: #333;
@@ -442,8 +475,35 @@ footer {
     padding: 15px;
   }
 
+  /* Show hamburger button */
+  #hamburger-btn {
+    display: flex;
+  }
+
+  /* Hide and style nav links for mobile */
+  #nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  #nav-links.active {
+    right: 0;
+  }
+
   nav a {
-    margin: 0 8px;
+    margin: 0;
+    font-size: 1.2rem;
   }
 
   #landing {
