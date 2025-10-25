@@ -35,15 +35,8 @@
     </audio>
 
     <!-- Music Control Button -->
-    <div id="musicControl" class="music-control">
+    <div id="musicControl" class="music-control" onclick="toggleMusic()">
       <i id="musicIcon" class="fas fa-volume-up"></i>
-      <span id="musicText">Music ON</span>
-      <button onclick="prevMusic()" class="music-btn">
-        <i class="fas fa-backward"></i>
-      </button>
-      <button onclick="nextMusic()" class="music-btn">
-        <i class="fas fa-forward"></i>
-      </button>
     </div>
 
     <!-- Header -->
@@ -206,19 +199,12 @@
       // === MUSIC SYSTEM ===
       const music = document.getElementById("bgMusic");
       const icon = document.getElementById("musicIcon");
-      const text = document.getElementById("musicText");
       const control = document.getElementById("musicControl");
-
-      // Ganti nama file sesuai musik kamu
-      const musicFiles = ["img/musik.mp3", "img/musik2.mp3", "img/musik3.mp3"];
-
-      let currentTrack = 0;
 
       window.enterSite = function () {
         const modal = document.getElementById("welcomeModal");
         modal.classList.add("hidden");
 
-        music.src = musicFiles[currentTrack];
         music.volume = 0.2;
 
         music
@@ -236,34 +222,11 @@
         if (music.paused) {
           music.play();
           icon.className = "fas fa-volume-up";
-          text.textContent = "Music ON";
         } else {
           music.pause();
           icon.className = "fas fa-volume-mute";
-          text.textContent = "Music OFF";
         }
       };
-
-      window.nextMusic = function () {
-        currentTrack = (currentTrack + 1) % musicFiles.length;
-        playTrack();
-      };
-
-      window.prevMusic = function () {
-        currentTrack =
-          (currentTrack - 1 + musicFiles.length) % musicFiles.length;
-        playTrack();
-      };
-
-      function playTrack() {
-        music.src = musicFiles[currentTrack];
-        music.play().catch((err) => console.error(err));
-      }
-
-      // Auto play next song
-      music.addEventListener("ended", () => {
-        nextMusic();
-      });
     </script>
   </body>
 </html>

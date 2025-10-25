@@ -94,27 +94,26 @@ body {
   bottom: 30px;
   right: 30px;
   background: linear-gradient(135deg, #00bcd4 0%, #00a8c5 100%);
-  padding: 16px 22px;
-  border-radius: 50px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   cursor: pointer;
   z-index: 1000;
   color: white;
   display: none;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
   box-shadow: 0 10px 30px rgba(0, 188, 212, 0.4);
   transition: all 0.3s ease;
-  font-weight: 600;
-  font-size: 16px;
 }
 
 .music-control:hover {
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 40px rgba(0, 188, 212, 0.5);
 }
 
 .music-control i {
-  font-size: 20px;
+  font-size: 24px;
 }
 
 /* === ANIMATIONS === */
@@ -469,7 +468,11 @@ footer {
   .music-control {
     bottom: 20px;
     right: 20px;
-    padding: 14px 18px;
-    font-size: 14px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .music-control i {
+    font-size: 20px;
   }
 }
