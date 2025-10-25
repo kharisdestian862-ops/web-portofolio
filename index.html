@@ -184,15 +184,19 @@
       const navLinks = document.getElementById("nav-links");
       const links = document.querySelectorAll("#nav-links a");
 
-      hamburgerBtn.addEventListener("click", () => {
-        hamburgerBtn.classList.toggle("active");
-        navLinks.classList.toggle("active");
-      });
+      if (hamburgerBtn) {
+        hamburgerBtn.addEventListener("click", () => {
+          hamburgerBtn.classList.toggle("active");
+          navLinks.classList.toggle("active");
+        });
+      }
 
       links.forEach((link) => {
         link.addEventListener("click", () => {
-          hamburgerBtn.classList.remove("active");
-          navLinks.classList.remove("active");
+          if (hamburgerBtn) {
+            hamburgerBtn.classList.remove("active");
+            navLinks.classList.remove("active");
+          }
         });
       });
 
@@ -201,24 +205,22 @@
       const icon = document.getElementById("musicIcon");
       const control = document.getElementById("musicControl");
 
-      window.enterSite = function () {
+      function enterSite() {
         const modal = document.getElementById("welcomeModal");
         modal.classList.add("hidden");
 
         music.volume = 0.2;
 
-        music
-          .play()
-          .then(() => {
-            control.style.display = "flex";
-          })
-          .catch((err) => {
-            console.error("Error playing music:", err);
-            control.style.display = "flex";
-          });
-      };
+        // Langsung tampilkan tombol
+        control.style.display = "flex";
 
-      window.toggleMusic = function () {
+        // Coba play musik
+        music.play().catch((err) => {
+          console.error("Error playing music:", err);
+        });
+      }
+
+      function toggleMusic() {
         if (music.paused) {
           music.play();
           icon.className = "fas fa-volume-up";
@@ -226,7 +228,11 @@
           music.pause();
           icon.className = "fas fa-volume-mute";
         }
-      };
+      }
+
+      // Expose functions to window
+      window.enterSite = enterSite;
+      window.toggleMusic = toggleMusic;
     </script>
   </body>
 </html>
